@@ -19,7 +19,7 @@ class Config():
     def __load_apps(self):
         apps = []
         for login in self.sessions:
-            apps.append(Client(login, self.__api_id, self.__api_key))
+            apps.append(Client(login, self.__api_id, self.__api_key, workdir=self.__sessions_dir))
         self.apps = apps
     def __load_config(self):
         with open("config.json", "r") as f:
