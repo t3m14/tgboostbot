@@ -1,6 +1,7 @@
 from utils.load import Config
 from pyrogram.raw.functions.messages import GetMessagesViews
 from pyrogram import filters, idle
+from pyrogram.handlers import MessageHandler
 import asyncio
 class App():
     def __init__(self) -> None:
@@ -20,18 +21,21 @@ class App():
             increment=True
         )
         )
-    async def start(self):
-        tasks = []
-        for app in self.config.apps:
-            await app.start()
-            print("started")
-            
-            @app.on_message(filters.chat("testing1441"))
-            async def get_post_and_put_to_queue(client, message):
-                print("POST GETTED" + str(message.id))
-                
-        await idle()
-        for app in self.config.apps:
-            await app.stop()
+async def handle(client, message):
+    app = App()
+    await app.view_last_messsages(client, message.sender_chat.username) 
+        
+async def start():
+    tasks = []
+    application = App()
+    for app in application.config.apps:
+        app.add_handler(MessageHandler(handle, "testing1441"))
+        await app.start()
+        print("started")
+    print("idle")
+    await idle()
+    for app in application.config.apps:
+        await app.stop()
+        print("app stopped")
 
 
