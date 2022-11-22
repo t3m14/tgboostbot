@@ -3,5 +3,17 @@
     "API_KEY" : "6507fadc1d76c1d8f3c0957690d9ec86",
     "BOT_TOKEN" : "",
     "SESSIONS_DIR" : "./sessions/",
-    "LOGS_DIR" : ""
+    "LOGS_DIR" : "",
+    "LINKS" : ["https://t.me/testing1441", "https://t.me/testing1441"],
+    "from_sleep" : 0,
+    "to_sleep" : 0,
+    "username_to_send" : "me",
+    "repost_advert_random_from" : 0,
+    "repost_advert_random_to" : 5,
+    "repost_random_from" : 1,
+    "repost_random_to" : 3,
+    "react_random_from" : 0,
+    "react_random_to" : 0,
+    "react_advert_random_from" : 0,
+    "react_advert_random_to" : 0,
 }
